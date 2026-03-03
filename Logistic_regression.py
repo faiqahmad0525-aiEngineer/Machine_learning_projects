@@ -8,6 +8,7 @@ df = pd.read_csv(r"C:\Users\ADMIN\Downloads\archive (8)\heart.csv")
 print(df.columns)
 
 # split data into feature adn lable
+df = df[["age", 'sex', "trestbps", "chol", "thalach", "oldpeak", "target"]]
 X = df.drop("target", axis=1)
 y = df["target"]
 
@@ -27,3 +28,7 @@ accuracy = accuracy_score(y_test, y_pred)
 print("Model Accuracy:", accuracy)
 print("classificatio report:", classification_report(y_test, y_pred))
 print("confusion matrix:", confusion_matrix(y_test, y_pred))
+
+
+print(df['target'].value_counts())
+print(df['target'].value_counts(normalize=True))
